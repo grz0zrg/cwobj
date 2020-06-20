@@ -820,6 +820,9 @@ inline cwobj *cwobj_meshInit() {
 inline void cwobj_free(cwobj *mesh) {
     if (!mesh) return;
 
+    cwobj_geomFree(mesh->geometry);
+    cwobj_materialFree(mesh->material);
+    
 	free(mesh->name);
 	free(mesh);
 }
